@@ -1,8 +1,8 @@
 #arquivo para rotas 
 from main import app
-from flask import render_template
+from flask import render_template, redirect, url_for, request
 
-@app.route('/') #rota tela inicial
+@app.route('/home') #rota tela inicial
 def homepage():
     return render_template("homepage.html")
 
@@ -14,7 +14,7 @@ def login():
 def perdi_senha():
     return render_template('esquecisenha.html')
 
-@app.route('/menu') #rota para
+@app.route('/menu') #rota para tela cliente pedido
 def menu_restaurante():
     return render_template("cliente_acesso.html")
 
@@ -22,6 +22,6 @@ def menu_restaurante():
 def painel_admin():
     return render_template("page_admin.html")
 
-@app.route('/perfil') #rota para o painel funcionario
-def painel_perfil_CLT():
-    return render_template("perfil_user.html")
+@app.route('/perfil_clt/<nome_funcionario>') #rota para o painel funcionario com uma variavel nome funcionario sendo repassada
+def painel_perfil_CLT(nome_funcionario):
+    return render_template("perfil_funcionario.html", nome_funcionario=nome_funcionario)
