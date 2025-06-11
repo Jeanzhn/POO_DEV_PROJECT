@@ -1,0 +1,19 @@
+# Pastas __pycache__ (geradas pelo Python)
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/  # Pastas aninhadas
+
+# Arquivos de cache e bytecode do Python
+*.py[cod]
+*$py.class
+
+# Virtualenv (ambiente virtual)
+venv/
+.env/
+.venv/
+
+# banco de dados
+instance/
+banco_de_dados.db
+
+Gitignore serve para adicionar arquivos que não devem ir para o commit
