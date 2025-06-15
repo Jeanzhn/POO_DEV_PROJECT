@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login do Funcionário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .erro {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Login do Funcionário</h2>
+
+    {% if error %}
+        <p class="erro">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST" action="/login_funcionario">
+        <input type="email" name="email" placeholder="Digite seu email" required>
+        <input type="password" name="senha" placeholder="Digite sua senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+
+</body>
+</html>

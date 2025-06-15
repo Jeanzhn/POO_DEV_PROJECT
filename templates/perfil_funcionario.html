@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perfil user</title>
+    <title>Painel do Funcionário</title>
 </head>
 <body>
-    <p>painel do funcionario {{ nome_funcionario }}</p>
+
+    <h2>Bem-vindo, {{ nome_funcionario }}</h2>
+
+    <!-- Links visíveis apenas se for autorizado -->
+    {% if autorizado %}
+        <a href="/adicionar_funcionario">Adicionar Funcionários</a><br>
+        <a href="/criar_categoria">Criar Categoria</a><br>
+        <a href="/cadastrar_alimento">Cadastrar Alimento</a><br>
+    {% else %}
+        <p>Você não tem permissão para gerenciar o cardápio.</p>
+    {% endif %}
+
+    <!-- Link acessível para todos os funcionários -->
+    <a href="/meu_perfil_funcionario">Acesso ao Perfil</a><br>
+
 </body>
 </html>

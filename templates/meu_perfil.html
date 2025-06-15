@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Perfil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .btn-area {
+            margin-top: 20px;
+        }
+
+        button, a.button-link {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover, a.button-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Perfil de {{ funcionario.nome }}</h2>
+    <p><strong>Email:</strong> {{ funcionario.email }}</p>
+    <p><strong>Permissão:</strong> {{ 'Gerente' if funcionario.autorizado else 'Funcionário Comum' }}</p>
+
+    <div class="btn-area">
+        <form action="/logout" method="POST" style="display: inline;">
+            <button type="submit">Sair</button>
+        </form>
+        <a href="/perfil_clt/{{ funcionario.nome }}" class="button-link">Voltar</a>
+    </div>
+
+</body>
+</html>
